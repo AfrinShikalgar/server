@@ -8,8 +8,13 @@ connectToMongo();
 const app = express();
 const port = 5000;
 
-app.use(cors());
-app.use(express.json());
+const corsOptions = {
+    origin: 'https://client-seven-silk-25.vercel.app',
+    optionsSuccessStatus: 200, // For legacy browser support
+  };
+  
+  app.use(cors(corsOptions));
+  app.use(express.json());
 
 // AVAIABLE ROUTES
 app.use('/api/auth', require('./routes/authRouter'));
