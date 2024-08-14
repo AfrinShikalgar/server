@@ -5,7 +5,7 @@ const { validationResult } = require('express-validator');
 const env = require('dotenv');
 env.config({ path: `${__dirname}/../.env` });
 
-const saltRounds = Number(process.env.SALT_ROUNDS);
+const saltRounds = Number(10);
 
 // ROUTE 1: Create a user using: POST 'api/auth/createuser". No login required
 exports.createUser = async (req, res) => {
