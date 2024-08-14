@@ -12,6 +12,8 @@ const corsOptions = {
     origin: 'https://client-seven-silk-25.vercel.app',
     optionsSuccessStatus: 200, // For legacy browser support
   };
+
+  app.options('*', cors(corsOptions)); // Allow preflight for all routes
   
   app.use(cors(corsOptions));
   app.use(express.json());
