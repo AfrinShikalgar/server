@@ -12,8 +12,13 @@ const corsOptions = {
     origin: 'https://client-seven-silk-25.vercel.app',
     optionsSuccessStatus: 200, // For legacy browser support
   };
+  app.options('*', (req, res) => {
+    res.header('Access-Control-Allow-Origin', 'https://client-seven-silk-25.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.sendStatus(200);
+});
 
-  app.options('*', cors(corsOptions)); // Allow preflight for all routes
   
   app.use(cors(corsOptions));
   app.use(express.json());
